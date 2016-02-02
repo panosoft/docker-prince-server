@@ -8,12 +8,11 @@ RUN apt-get update && apt-get install --assume-yes \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 
-# Enable contrib repository
-RUN sed -i 's/$/ contrib/' /etc/apt/sources.list
-
 # Install fonts
+# NOTE: must enable contrib apt repository for msttcorefonts
 # NOTE: must remove bitmap-fonts.conf due to fontconfig bug
-RUN apt-get update && apt-get install --assume-yes \
+RUN sed -i 's/$/ contrib/' /etc/apt/sources.list \
+  && apt-get update && apt-get install --assume-yes \
     fontconfig \
     msttcorefonts \
   && apt-get clean \

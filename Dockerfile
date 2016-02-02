@@ -31,13 +31,15 @@ RUN wget http://www.princexml.com/download/$PRINCE_TAR \
   && rm -r $PRINCE
 
 # Install node
+ENV NODE_VERSION=4.2.6
 RUN git clone https://github.com/tj/n.git n \
   && cd n \
   && make install \
-  && n 4.*
+  && n $NODE_VERSION
 
 # Install server
-RUN npm install -g @panosoft/prince-server@"^0.1.0"
+ENV PRINCE_SERVER_VERSION=0.1.1
+RUN npm install -g @panosoft/prince-server@$PRINCE_SERVER_VERSION
 
 EXPOSE 8443
 

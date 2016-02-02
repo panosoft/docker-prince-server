@@ -37,7 +37,7 @@ RUN git clone https://github.com/tj/n.git n \
   && make install \
   && n 4.*
 
-# Install @panosoft/prince-server
+# Install server
 RUN npm install -g @panosoft/prince-server@"^0.1.0"
 
 EXPOSE 8443

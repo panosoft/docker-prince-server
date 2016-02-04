@@ -38,7 +38,7 @@ RUN git clone https://github.com/tj/n.git n \
   && n $NODE_VERSION
 
 # Install server
-ENV PRINCE_SERVER_VERSION=0.1.1
+ENV PRINCE_SERVER_VERSION=0.1.2
 RUN npm install -g @panosoft/prince-server@$PRINCE_SERVER_VERSION
 
 EXPOSE 8443
